@@ -1,0 +1,10 @@
+.weatherList {
+    display: flex;
+    overflow-x: auto;
+
+    width: 100%;
+}
+
+.weatherItem {
+    flex-grow: 1;
+}

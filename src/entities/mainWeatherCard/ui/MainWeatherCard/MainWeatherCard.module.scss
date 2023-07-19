@@ -1,0 +1,38 @@
+.card {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    padding: 40px;
+
+    font-family: var(--main-font);
+
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10%;
+}
+
+.weatherType {
+    font-size: 3em;
+}
+
+.city {
+    margin-top: 15px;
+    font-size: 0.8em;
+}
+
+.weatherTemperature {
+    font-size: 2em;
+}
+
+.weekDay {
+ font-size: 0.8em;
+}
+
+.date {
+    font-size: 0.8em;
+}
