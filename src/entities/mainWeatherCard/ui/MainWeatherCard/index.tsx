@@ -2,22 +2,28 @@ import React from 'react'
 import classNames from 'classnames';
 
 import styles from './MainWeatherCard.module.scss';
+import useFetchCurrentWeather from 'entities/mainWeatherCard/hook/useFetchCurrentWeather';
 
 interface MainWeatherCardProps {
-    city: string;
-    temperature: string;
-    weekDay: string;
-    date: string;
+    location: GeolocationPosition
 }
 
-const MainWeatherCard: React.FC<MainWeatherCardProps> = ({city, temperature, weekDay, date}) => {
+const MainWeatherCard: React.FC<MainWeatherCardProps> = ({location}) => {
+  const [weatherData, loading, error] = useFetchCurrentWeather(location.coords.latitude + "," + location.coords.longitude)
+  const localDate = new Date(Date.parse(weatherData.location.localtime));
+
   return (
     <article className={styles.card}>
-        <i className={classNames('wi wi-night-sleet', styles.weatherType)}/>
-        <span className={styles.city}>{city}</span>
-        <span className={styles.weatherTemperature}>{temperature}°C</span>
-        <span className={styles.weekDay}>{weekDay}</span>
-        <span className={styles.date}>{date}</span>
+      {weatherData && 
+        <>
+          <img src={weatherData.current.condition.icon} className={styles.weatherType} style={{width: '70px', height: '70px'}}/>
+          <span className={styles.city}>{weatherData.location.region}</span>
+          <span className={styles.weatherTemperature}>{weatherData.current.temp_c}°C</span>
+          <span className={styles.weekDay}>{localDate.toLocaleString('en-US', {weekday: "short"})}</span>
+          <span className={styles.date}>{localDate.toLocaleDateString('en-US')}</span>
+        </>
+      }
+
     </article>
   )
 }

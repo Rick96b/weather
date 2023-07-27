@@ -1,1 +1,0 @@
-export type WeatherTypes = 'Rain' | 'Sunny' | 'Cloudy' | 'Partially Cloudy' | 'Snow' | 'Stormy';

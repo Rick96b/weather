@@ -9,8 +9,10 @@
     gap: 5px;
 
     padding: 40px;
+    padding-bottom: 20px;
 
     font-family: var(--main-font);
+    font-size: 14px;
 
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10%;
@@ -21,8 +23,7 @@
 }
 
 .city {
-    margin-top: 15px;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .weatherTemperature {
@@ -30,9 +31,9 @@
 }
 
 .weekDay {
- font-size: 0.8em;
+    font-size: 1em;
 }
 
 .date {
-    font-size: 0.8em;
+    font-size: 1em;
 }

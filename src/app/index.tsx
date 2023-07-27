@@ -5,12 +5,32 @@ import { Routing } from 'pages';
 
 import "./styles/reset.scss";
 import "./styles/variables.scss";
-import "./styles/weather-icons.min.css";
+import useUserGeolocation from './hooks/useUserGeolocation';
+
+
+const LocationContext = React.createContext<any>(undefined);
+
 
 const App = () => {
+  const {currentLocation, setCurrentLocation} = useUserGeolocation();
+
+  
+
   return (
-    <Routing />
+     <>
+      {
+        currentLocation && 
+        <LocationContext.Provider value={{ currentLocation, setCurrentLocation }}>
+          <Routing />
+        </LocationContext.Provider>
+      }
+     </> 
+
+        
+    
   )
 }
 
 export default withProviders(App);
+
+export {LocationContext};
