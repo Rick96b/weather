@@ -18,7 +18,9 @@ const WeatherList: React.FC<WeatherListProps> = ({}) => {
   return (
     <ul className={styles.weatherList}>
       {forecastData?.map((dayData:any) =>
-        <BriefWeatherCard weatherType={dayData.day.condition} temperature={dayData.day.avgtemp_c} date={dayData.date}/>
+        <li className={styles.weatherItem}>
+          <BriefWeatherCard weatherType={dayData.day.condition} temperature={dayData.day.avgtemp_c} date={dayData.date}/>
+        </li>
       )}
     
 

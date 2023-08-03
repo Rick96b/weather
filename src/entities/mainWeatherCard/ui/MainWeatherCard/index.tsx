@@ -10,6 +10,10 @@ interface MainWeatherCardProps {
 
 const MainWeatherCard: React.FC<MainWeatherCardProps> = ({location}) => {
   const [weatherData, loading, error] = useFetchCurrentWeather(location.coords.latitude + "," + location.coords.longitude)
+
+
+  if(!weatherData) return <></>
+  
   const localDate = new Date(Date.parse(weatherData.location.localtime));
 
   return (

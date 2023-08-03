@@ -26,6 +26,7 @@ const briefWeatherCard: React.FC<CardProps> = ({weatherType, temperature, date})
             : weekDay.charAt(0).toUpperCase() + weekDay.slice(1)
           }
         </h2>
+        <span className={styles.date}>{dateData.toLocaleString('en-US', {day: 'numeric', month: 'short'})}</span>
         <div className={styles.cardContainer}>
             <img src={weatherType.icon}/>
             <p className={styles.weatherTemperature}>{temperature}°C</p>

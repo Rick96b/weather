@@ -11,23 +11,22 @@ import useUserGeolocation from './hooks/useUserGeolocation';
 const LocationContext = React.createContext<any>(undefined);
 
 
+
+
 const App = () => {
   const {currentLocation, setCurrentLocation} = useUserGeolocation();
 
-  
+  if(!currentLocation) return <></>
 
   return (
-     <>
+    <>
       {
         currentLocation && 
         <LocationContext.Provider value={{ currentLocation, setCurrentLocation }}>
           <Routing />
         </LocationContext.Provider>
       }
-     </> 
-
-        
-    
+    </> 
   )
 }
 
